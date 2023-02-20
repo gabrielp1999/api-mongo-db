@@ -1,8 +1,11 @@
 import { Router } from "express";
+import carrosControler from "./Controllers/carrosControler";
 
 const routes = Router();
 
-routes.get("/cars", (req, res) => res.send({message: "rota de carro"}));
+routes.get("/", (req, res) => res.send({message: "api ok"}));
+
+routes.post("/carros", carrosControler.create);
 
 
 export { routes };

@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const CarroSchema = new Schema({
-  id: ObjectId,
   modelo: String,
   marca: String,
   ano: String,
@@ -12,10 +11,9 @@ const CarroSchema = new Schema({
   valor: String,
   portas: String,
   motor: String,
-  descricao: String, 
-  date: Date
+  descricao: String,
 });
 
 const CarroModel = mongoose.model("carros", CarroSchema);
 
-export { CarroModel };
+export default CarroModel ;
