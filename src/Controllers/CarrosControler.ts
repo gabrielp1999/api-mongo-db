@@ -12,7 +12,7 @@ class CarrosController {
             
         } catch (error) {
             console.log(error)
-            return res.status(400).send({message: "Dados invalido"});
+            return res.status(400).send({message: "Invalid data"});
         }
 
     }
@@ -29,13 +29,13 @@ class CarrosController {
             const car = await CarroModel.findById(id);
     
             if(!car){
-                return res.status(403).send({message: "Carro não encontrado"});
+                return res.status(403).send({message: "Car not found"});
             }
     
             return res.status(200).json(car);
         }catch(error) {
             console.log(error)
-            return res.status(400).send({message: "id invalido"});
+            return res.status(400).send({message: "Invalid id"});
         }
 
     }
@@ -48,14 +48,14 @@ class CarrosController {
             const carDb = await CarroModel.findByIdAndUpdate(id, car);
 
             if(!carDb){
-                return res.status(403).send({message: "Carro não encontrado"});
+                return res.status(403).send({message: "Car not found"});
             }
 
-            return res.status(200).json({message: "carro atualizado com sucesso"});
+            return res.status(200).json({message: "Successfully updated car"});
             
         } catch (error) {
             console.log(error)
-            return res.status(400).send({message: "id invalido"});
+            return res.status(400).send({message: "Invalid id"});
         }
 
 
@@ -67,14 +67,14 @@ class CarrosController {
             const car = await CarroModel.deleteOne({_id: id});
     
             if(!car){
-                return res.status(403).send({message: "Carro não encontrado"});
+                return res.status(403).send({message: "Car not found"});
             }
     
-            return res.status(200).send({message: "Carro excluido com sucesso"});
+            return res.status(200).send({message: "Successfully deleted car"});
             
         } catch (error) {
             console.log(error)
-            return res.status(400).send({message: "id invalido"});
+            return res.status(400).send({message: "Invalid id"});
         }
 
     }
