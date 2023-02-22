@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const ObjectId = Schema.Types.ObjectId;
-
 const CarroSchema = new Schema({
   modelo: String,
   marca: String,
