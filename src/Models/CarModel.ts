@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const CarroSchema = new Schema({
+const CarSchema = new Schema({
   modelo: String,
   marca: String,
   ano: String,
@@ -12,6 +12,6 @@ const CarroSchema = new Schema({
   descricao: String,
 });
 
-const CarroModel = mongoose.model("carros", CarroSchema);
+const CarModel = mongoose.model("carros", CarSchema);
 
-export default CarroModel ;
+export default CarModel ;

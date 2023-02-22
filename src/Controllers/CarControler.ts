@@ -1,11 +1,11 @@
-import CarroModel from "../Models/CarModel";
+import CarModel from "../Models/CarModel";
 import { Request, Response } from "express";
 
-class CarrosController {
+class CarController {
 
     async create(req: Request, res: Response){
         try {
-            const createdCar = await CarroModel.create(req.body);
+            const createdCar = await CarModel.create(req.body);
             
             console.log(createdCar)
             return res.status(201).json(createdCar);
@@ -18,7 +18,7 @@ class CarrosController {
     }
 
     async index(req: Request, res: Response){
-        const cars = await CarroModel.find();
+        const cars = await CarModel.find();
 
         return res.status(200).json(cars);
     }
@@ -26,7 +26,7 @@ class CarrosController {
     async show(req: Request, res: Response){
         try{
             const { id } = req.params;
-            const car = await CarroModel.findById(id);
+            const car = await CarModel.findById(id);
     
             if(!car){
                 return res.status(403).send({message: "Car not found"});
@@ -45,7 +45,7 @@ class CarrosController {
             const { id } = req.params;
             const car = req.body;
     
-            const carDb = await CarroModel.findByIdAndUpdate(id, car);
+            const carDb = await CarModel.findByIdAndUpdate(id, car);
 
             if(!carDb){
                 return res.status(403).send({message: "Car not found"});
@@ -64,7 +64,7 @@ class CarrosController {
     async delete(req: Request, res: Response){
         try {
             const { id } = req.params;
-            const car = await CarroModel.deleteOne({_id: id});
+            const car = await CarModel.deleteOne({_id: id});
     
             if(!car){
                 return res.status(403).send({message: "Car not found"});
@@ -81,4 +81,4 @@ class CarrosController {
 
 }
 
-export default new CarrosController();
+export default new CarController();
